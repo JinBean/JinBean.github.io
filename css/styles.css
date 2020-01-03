@@ -1,0 +1,144 @@
+/* Fonts */
+
+@font-face {
+  font-family: "metropolis_1920regular";
+  src: url("../Fonts/Metropolis/metropolis_1920-webfont.woff2") format('woff2'),
+        url("../Fonts/Metropolis/metropolis_1920-webfont.woff") format('woff'),
+        url('../Fonts/Metropolis/metropolis_1920-webfont.eot');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body{
+  margin: 0;
+}
+
+
+.intro {
+  min-height: 320px;
+  background-color: #F2DDA4;
+  font-family: "metropolis_1920regular";
+  font-size: 5em;
+  line-height: 320px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.topIcon {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-flow: wrap;
+  text-align: center;
+}
+
+.line-break {
+  width: 100%;
+}
+
+.topColumn--left {
+  width: 50%;	
+  height: 100%;
+  float: left;
+	min-height: 660px;
+	position: relative;
+	text-align: center;
+}
+
+.topColumn--right {
+  width: 50%;	
+  height: 100%;
+  float: left;
+	min-height: 660px;
+	position: relative;
+	text-align: center;
+}
+
+.topColumn--left:hover .overlay--left {
+  bottom: 0;
+  width: 100%
+}
+.topColumn--right:hover .overlay--right {
+  bottom: 0;
+  width: 100%
+}
+
+.img {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+.text--left {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.text--right {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translate(+50%, +50%);
+  -ms-transform: translate(+50%, +50%);
+  transform: translate(+50%, +50%);
+  text-align: center;
+}
+.overlay--left {
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #949396;
+  opacity: 0.75;
+  overflow: hidden;
+  width: 0;
+  height:100%;
+  transition: .5s ease;
+}
+
+.overlay--right{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #949396;
+  opacity: 0.75;
+  overflow: hidden;
+  width: 0;
+  height:100%;
+  transition: .5s ease;
+}
+
+
+
+@media only screen and (max-width:768px) {
+	.section-intro {
+		max-width: 650px;
+	}
+	.section-intro h1 {
+		font-size: 3rem;
+	}
+}
+@media only screen and (max-width:600px) {
+	.section-intro h1 {
+		font-size: 2.6rem;
+	}
+	.section-intro h5 {
+		font-size: 1.5rem;
+		letter-spacing: .3rem;
+	}
+}
+@media only screen and (max-width:400px) {
+	.section-intro h1 {
+		font-size: 2.4rem;
+	}
+}
