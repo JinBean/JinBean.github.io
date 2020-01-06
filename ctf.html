@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Tan Wei Jin</title>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/work.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="work.html">Wei Jin</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<div class="inner">
+						<h2>Menu</h2>
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="work.html">Professional</a></li>
+							<li><a href="personal.html">Personal</a></li>
+							<li><a href="#">Resume</a></li>
+						</ul>
+						<a href="#" class="close">Close</a>
+					</div>
+				</nav>
+
+				<!-- Wrapper -->
+					<section id="wrapper" style="background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url(images/bgblue.jpg);">
+						<header>
+							<div class="inner">
+								<h2>Capture The Flag Mini-Challenge</h2>
+								<p>As part of a cybersecurity course, my team and I created a challenge for a jeopardy style Capture The Flag (CTF). </p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<h3 class="major">Challenge</h3>
+									<p>The challenge can be found <a href="https://tlkh.github.io/cc-ctf-challenge/" target="_blank">here</a></p>
+
+									<p>Due to the learning objectives of the course, the challenge is designed to be doable for people who are new to CTFs.
+										The challenge includes basic CTF skills including (but not limited to) cryptography and stenography.</p>
+
+									<h3 class="major">CTF Walkthrough</h3>
+									<input class="spoilerbutton" type="button" value="Show Solution" onclick="this.value=this.value=='Show Solution'?'Hide Solution':'Show Solution';">
+										<div class="spoiler"><div>
+
+										<p>  </p>
+										<ol type="1">
+											<li>Query the terminal server using <code>remi</code> to read the initial story</li>
+											<li>Query the terminal server with <code>inventory find meatballs</code> and download the image "meatballs.jpg"</li>
+											<li>Run <code>strings meatballs.jpg</code> in your terminal to obtain a ciphertext "pASARFeDXPsj4V5u7qTOYoHzljCS+lc8YmSG/IiYJq74qKT3fcQAvuT24WJlMoMIinB9eKYGbR4FXRsAZ+kdbrytAmSDxFv33YARollK0IvXBVgVLsE9dmGghi71J9FP". Store this away for now.</li>
+											<li>Query the terminal server with <code>inventory find spaghetti</code> and download the image "spaghetti.jpg"</li>
+											<li>Use <code>steghide -extract -sf spaghetti.jpg</code> in your terminal with the password "spaghetti" to extract a file "recipe.txt"</li>
+											<li>Enter the contents of "recipe.txt" through an online <a href="http://p-helpers.appspot.com/chef/chef.html" target="_blank">Chef Esolang decoder</a> to obtain the ciphertext "PurrflTneyvpXabg"</li>
+											<li>Rot13 the ciphertext to obtain the key "CheesyGarlicKnot</li>
+											<li>You can query the terminal server with <code>inventory find CheesyGarlicKnot</code> to obtain more clues</li>
+											<li>AES-ECB decrypt the ciphertext obtained from "meatballs.jpg" with "CheesyGarlicKnot" as the key to obtain the ciphertext "6b6261721244591492597245de07dbef1626b472244f340614f9083c6e683a7c046c0f0a46360f5b"</li>
+											<li>Query the terminal with <code>remi 6b6261721244591492597245de07dbef1626b472244f340614f9083c6e683a7c046c0f0a46360f5b</code> to get a python file "door.py"</li>
+											<li>Decipher the plaintext by reverse-engineering “door.py” and un-map the ciphertext to get "4354467b346c6c5f6a3030725f663030647a5f3472335f62336c306e675f325f6d335f6e3077217d"</li>
+											<li>Hex decode the ciphertext to get the flag “ctf{4ll_j00r_f00dz_4r3_b3l0ng_2_m3_n0w!}”</li>
+										</ol>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+					</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/work.js"></script>
+
+	</body>
+</html>
