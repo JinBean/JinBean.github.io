@@ -44,8 +44,8 @@
 					<section id="wrapper" style="background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url(images/bgblue.jpg);">
 						<header>
 							<div class="inner">
-								<h2>Common Vulnerabilities and Exoposure (CVE) Extensions</h2>
-								<p>As an extension to our <a href="coinwatch.html">research paper</a>, we applied for extensions to exisiting CVEs, which were accepted by the National Institute of Standards and Technology (NIST) in the National Vulnerability Database (NVD)</p>
+								<h2>Common Vulnerabilities and Exposure (CVE) Extensions</h2>
+								<p>CVE is a list of entries—each containing an identification number, a description, and at least one public reference—for publicly known cybersecurity vulnerabilities.</p>
 							</div>
 						</header>
 
@@ -53,26 +53,32 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Lorem ipsum dolor</h3>
-									<p>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
+									<h3 class="major">About</h3>
+									<p>As an extension to our <a href="coinwatch.html">research paper</a>, we applied for extensions to exisiting CVEs, which were accepted by the National Institute of Standards and Technology (NIST) and the MITRE Corporation.</p>
+									<p>Currently, we have a total of 4 approved CVE extensions.</p>
+									<h3 class="major"><a href="https://nvd.nist.gov/vuln/detail/CVE-2018-17144">CVE-2018-17144</a></h3>
+									<p>Bitcoin Core 0.14.x before 0.14.3, 0.15.x before 0.15.2, and 0.16.x before 0.16.3 allow a remote denial of service (application crash) exploitable by miners via duplicate input. Attackers can also double spend Bitcoin transactions, causing an artificial inflation of Bitcoin.</p>
+									<p>At the time of our discovery (26/3/2019), we found 6 different cryptocurrencies that also contained this vulnerability including MinexCoin, MktCoin, and PlatinCoin.</p>
+									
+									<h3 class="major"><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-7167">CVE-2019-7167</a></h3>
+									<p>Zcash, before the Sapling network upgrade (2018-10-28), had a counterfeiting vulnerability. A key-generation process, during evaluation of polynomials related to a to-be-proven statement, produced certain bypass elements. 
+										Availability of these elements allowed a cheating prover to bypass a consistency check, and consequently transform the proof of one statement into an ostensibly valid proof of a different statement, thereby breaking the soundness of the proof system. 
+										This misled the original Sprout zk-SNARK verifier into accepting the correctness of a transaction.</p>
+									<p>At the time of our discovery (27/5/2019), we found 1 other cryptocurrency that also contained this vulnerability - Hush.</p>
 
-									<p>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius.</p>
-
-									<h3 class="major">Vitae phasellus</h3>
-									<p>Cras mattis ante fermentum, malesuada neque vitae, eleifend erat. Phasellus non pulvinar erat. Fusce tincidunt, nisl eget mattis egestas, purus ipsum consequat orci, sit amet lobortis lorem lacus in tellus. Sed ac elementum arcu. Quisque placerat auctor laoreet.</p>
-
+									<h3 class="major"><a href="https://nvd.nist.gov/vuln/detail/CVE-2016-10724">CVE-2016-10724</a> / <a href="https://nvd.nist.gov/vuln/detail/CVE-2016-10725">CVE-2016-10725</a></h3>
+									<p>These two vulnerabilites are closely related and hence are grouped in the same section.</p>
+									<p>A remote network alert system originating from Bitcoin allows the denial of service (memory exhaustion) if an attacker can sign a message with a certain private key that had been known by unintended actors. Due to an infinitely sized map, 
+										an attacker can send a large number of alerts (or very large alerts, or both) to a node, causing the node to run out of memory and crash. The alert system in itself also creates a centralized source in the cryptocurrency. 
+										Bitcoin has since deprecated the alert system entirely.</p>
+									<p>At the time of our discovery (14/6/2019), we found 377 other cryptocurrencies that also contained this vulnerability including Zcash, Bitcoin Private, and Dogecoin.</p>
+									
 									<section class="features">
 										<article>
 											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3 class="major">Sed feugiat lorem</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-											<h3 class="major">Nisl placerat</h3>
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing vehicula id nulla dignissim dapibus ultrices.</p>
-											<a href="#" class="special">Learn more</a>
+											<h3 class="major">Full GitHub Disclosure</h3>
+											<p>Full descriptions and lists of cryptocurrencies affected can be found here.</p>
+											<a href="https://github.com/JinBean/CVE-Extension" target="_blank" class="special">Learn more</a>
 										</article>
 									</section>
 
