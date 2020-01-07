@@ -134,8 +134,9 @@
 			<script type="text/javascript">var submitted=false;</script>
 			<script type="text/javascript">
 			$('#gform').on('submit', function(e) {
-				$('#gform *').fadeOut(1000);
-				$('#gform').prepend("The form has been submitted successfully, I'll get back to you as soon as I can!");
+				$('#gform *').fadeOut(500, function(){
+					$('#gform').replaceWith("The form has been submitted successfully, I'll get back to you as soon as I can!");
+				});
 				});
 			</script>
 
