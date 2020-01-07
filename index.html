@@ -82,29 +82,30 @@
 							<section class="panel color4-alt">
 								<div class="intro color4">
 									<h2 class="major">Contact</h2>
-									<p>If you would like to collaborate on a project or just to meet up for some drinks, feel free to contact me through any of these channels. I'll probably respond faster through either telegram or email though!</p>
+									<p>If you would like to collaborate on a project or to just meet up for some drinks, feel free to contact me through any of these channels. I'll probably respond faster through either telegram or email though!</p>
 								</div>
 								<div class="inner columns divided">
 									<div class="span-3-25">
-										<form method="POST" action="" enctype="text/plain">
+										<form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSergkPU-V4GQ3elDya3rPilYnX1nE9i7w5v-OYged7BadqWqQ/formResponse?" target="hidden_iframe" onsubmit="submitted=true">
 											<div class="fields">
 												<div class="field half">
 													<label for="name">Name</label>
-													<input type="text" name="name" id="name" />
+													<input type="text" name="entry.1608194626" id="entry.1608194626" required/>
 												</div>
 												<div class="field half">
 													<label for="email">Email</label>
-													<input type="email" name="email" id="email" required />
+													<input type="email" name="entry.397273054" id="entry.397273054" required />
 												</div>
 												<div class="field">
 													<label for="message">Message</label>
-													<textarea name="message" id="message" rows="4" maxlength="6000" required></textarea>
+													<textarea name="entry.1845770321" id="entry.1845770321" rows="4" maxlength="6000" required></textarea>
 												</div>
 											</div>
 											<ul class="actions">
 												<li><input type="submit" value="Send Message" class="button primary" /></li>
 											</ul>
 										</form>
+										<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 									</div>
 									<div class="span-1-5">
 										<ul class="contact-icons color1">
@@ -130,6 +131,13 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script type="text/javascript">var submitted=false;</script>
+			<script type="text/javascript">
+			$('#gform').on('submit', function(e) {
+				$('#gform *').fadeOut(1000);
+				$('#gform').prepend("The form has been submitted successfully, I'll get back to you as soon as I can!");
+				});
+			</script>
 
 	</body>
 </html>
