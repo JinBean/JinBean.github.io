@@ -151,7 +151,7 @@ var main = (function($) { var _ = {
 					'<div class="inner">' +
 						'<div class="nav-next"></div>' +
 						'<div class="nav-previous"></div>' +
-						'<div class="toggle"></div>' +
+						// '<div class="toggle"></div>' +
 					'</div>' +
 				'</div>'
 			).appendTo(_.$body);
@@ -422,7 +422,7 @@ var main = (function($) { var _ = {
 					// Slide.
 
 						// Create elements.
-	 						s.$slide = $('<div class="slide"><div class="caption"></div><div class="image"></div></div>');
+	 						s.$slide = $('<div class="slide" style="background-color: white;"><div class="caption"></div><div class="image" style="background-color: white;"></div></div>');
 
 	 					// Image.
  							s.$slideImage = s.$slide.children('.image');
