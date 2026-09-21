@@ -3,3 +3,7 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+node_modules/
+.npm-cache/
+.blog-test-*/
+.work-test-*/

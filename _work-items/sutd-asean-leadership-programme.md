@@ -1,55 +1,29 @@
-<!-- Generated from _work-items and _work/templates. Edit those sources, then run npm run build. -->
-<!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html lang="en-GB">
+---
+title: "SUTD ASEAN Leadership Programme,"
+page_title: "SUTD ASEAN Leadership Programme,"
+category: "Exchange programme"
+section: "experience"
+order: 3
+excerpt: "I spent 4 months on a summer exchange to ZheJiang University to attend a special curriculum and to take part in a project mentored by Dr Zhang KeJun"
+permalink: "/zhejiang.html"
+subtitle: "I spent 4 months on a summer exchange to ZheJiang University to attend a special curriculum and to take part in a project mentored by <a href=\"https://person.zju.edu.cn/en/zhangkejun\" target=\"_blank\" rel=\"noopener noreferrer\">Dr Zhang KeJun</a>"
+---
 
-<head>
-	<title>SUTD ASEAN Leadership Programme, · Tan Wei Jin</title>
-	<meta charset="utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="assets/css/site.css" />
-
-</head>
-
-<body class="portfolio project">
-	<a class="skip-link" href="#wrapper">Skip to content</a>
-	<header class="site-header"><a class="site-brand" href="index.html" aria-label="Wei Jin home"><img
-				src="images/Jin2.png" alt="Jin" width="135" height="135" /></a>
-		<nav aria-label="Main navigation"><a href="index.html">Who Am I?</a><a href="work.html"
-				aria-current="location">Professional</a><a href="blog/index.html">Personal Blog</a><a href="CV_TanWeiJin.pdf"
-				target="_blank" rel="noopener noreferrer">Resume</a></nav>
-	</header>
-
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
-
-		<!-- Header -->
-
-
-		<!-- Menu -->
-
-
-		<!-- Wrapper -->
-		<section id="wrapper" role="main" tabindex="-1">
-			<header><div class="inner"><a class="back-link" href="work.html">← Professional</a><h1>SUTD ASEAN Leadership Programme,</h1><p>I spent 4 months on a summer exchange to ZheJiang University to attend a special curriculum and to take part in a project mentored by &lt;a href=&quot;https://person.zju.edu.cn/en/zhangkejun&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;Dr Zhang KeJun&lt;/a&gt;</p></div></header>
-
-			<!-- Content -->
-			<div class="wrapper"><div class="inner"><h2 class="major"> Temasek Foundation International LEaRN Scholarship</h2>
+<h2 class="major"> Temasek Foundation International LEaRN Scholarship</h2>
 <p>While in ZheJiang, I was sponsored by <a href="https://www.sutd.edu.sg/Global/Exchange-Scholarships-and-Awards/Temasek-Foundation-Leadership-Enrichment">Temasek Foundation under the International LEaRN Scholarship</a>.
 One of the requirements of the scholarship was to do some form of overseas community work. We decided on helping out at HuShu School, a special needs day school that takes care of children up until age 20.
 We visited the school on four separate occasions organising activities such as teaching students different dances for physical education, teaching the younger students origami and paper plane folding, and painting and making cloth bowties
 with the older students.
 </p>
+
 <p>Overall, it was a great learning experience to be able to work with special needs children, to be able to see and understand their mentality and behaviour from a first hand perspective. </p>
+
 <h2 class="major">Experience</h2>
 <p>Most of the courses that we participated in revolved around the principles of a design focused mindset, how to understand your target audience and to consider how they would view your product.
 We also had the opportunity to visit different company headquarters and tour the campus. We visited companies like HuaWei and Alibaba, and got the chance to talk to their employees about their work and their lives.
+
 <p>It wasn't all fun and games though, my group worked on a eBook reader while we were in ZheJiang, and it was entered into a nation wide competition. Read about it <a href="eMello">here</a>!</p>
+
 <section class="features">
 <article>
 <h2 class="major">My Reflections</h2>
@@ -62,13 +36,3 @@ We also had the opportunity to visit different company headquarters and tour the
 <a href="https://wearesutd.sutd.edu.sg/author/alp2018_group3/" class="special" aria-label="Learn more: Group Journey"></a>
 </article>
 </section>
-</div></div></section>
-		<footer class="site-footer" id="contact" aria-label="Contact and site information" data-site-footer></footer>
-
-		<!-- Scripts -->
-		<script src="assets/js/site-footer.js"></script>
-	<script src="assets/js/site.js"></script>
-
-</body>
-
-</html>

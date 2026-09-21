@@ -1,0 +1,31 @@
+---
+title: "Instagram Part 2"
+date: "2022-01-26"
+category: "Art Manager"
+excerpt: "Some tips and tricks to growing your creator account."
+permalink: "/blog/instagramPart2.html"
+subtitle: "Growing your following."
+display_date: "January 25, 2022"
+---
+
+
+Here are some techniques you can use to grow your Instagram following.
+
+## Reels
+
+Reels are the newest feature that Instagram has to offer. The main goal of the feature is to rival TikTok's short form content, which is the reason they are pushing reels so heavily now. This is a great opportunity for creators to get promoted.
+
+The ideal length of reels was found to be 11-20 seconds long. Again, make use of the 3-5 hashtags in the caption, along with a longer description. Always have a call to action at the end of the reel to convert random views into followers, but keep this call to action to 1-2 seconds.
+
+Some reel tips: <ul> <li> Use a "hook" in the first 3 seconds to get users interested in watching the whole reel </li> <li> See what music is doing well for reels and try to use those for your own content </li> <li> Check out competitors/niche creators to see what trends do well for them </li> <li> Use transitions and pop up text to make it easier to hit the 11s mark </li> <li> Do not use borders around videos </li> <li> Text in the hook is a good way to capture audience's attention </li> </ul>
+
+## Feedback Loop
+
+To continuously improve, a good feedback loop is essential. Find a preferred methodof interacting and getting feedback from followers. This can be through polls or open ended surveys on a story, or questions in posts. The questions posed should help identify the kind of content your followers like and dislike. You can experiment with different kinds of content, and follow it up with a poll to see how receptive people are to it.
+
+In the short term you might not really see a noticable difference, but in the long run you will have a much clearer understanding of what does well and what doesn't. Another reason to do this continuously is that as your audience grows, their taste can change over time as well.
+
+## Bot Accounts
+
+Obviously I don't endorse the use of botting. This only hurts your account in the long run for different reasons. The main reason is that Instagram's algorithm uses your followers' preferences to determine the type of accounts to promote your posts to. By having a ton of bot followers, you will essentially confuse Instagram's algorithm into misgrouping your target audience. Secondly, having bot followers affects your engagement ratio, telling Instagram that your content might not be doing as well as before, and encouraging it to promote you less.
+

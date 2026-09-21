@@ -1,49 +1,23 @@
-<!-- Generated from _work-items and _work/templates. Edit those sources, then run npm run build. -->
-<!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html lang="en-GB">
+---
+title: "Internship at Saleswhale"
+page_title: "Internship at Saleswhale"
+category: "Internship"
+section: "featured"
+order: 1
+excerpt: "I spent 4 months (May 2019 - Aug 2019) interning as a backend developer at a Singapore based startup called Saleswhale."
+permalink: "/saleswhale.html"
+subtitle: "I spent 4 months (May 2019 - Aug 2019) interning at a Singapore based startup called Saleswhale."
+image: "/images/personal/SaleswhaleLogo.png"
+image_alt: "Saleswhale logo"
+---
 
-<head>
-	<title>Internship at Saleswhale · Tan Wei Jin</title>
-	<meta charset="utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="assets/css/site.css" />
-
-</head>
-
-<body class="portfolio project">
-	<a class="skip-link" href="#wrapper">Skip to content</a>
-	<header class="site-header"><a class="site-brand" href="index.html" aria-label="Wei Jin home"><img
-				src="images/Jin2.png" alt="Jin" width="135" height="135" /></a>
-		<nav aria-label="Main navigation"><a href="index.html">Who Am I?</a><a href="work.html"
-				aria-current="location">Professional</a><a href="blog/index.html">Personal Blog</a><a href="CV_TanWeiJin.pdf"
-				target="_blank" rel="noopener noreferrer">Resume</a></nav>
-	</header>
-
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
-
-		<!-- Header -->
-
-
-		<!-- Menu -->
-
-
-		<!-- Wrapper -->
-		<section id="wrapper" role="main" tabindex="-1">
-			<header><div class="inner"><a class="back-link" href="work.html">← Professional</a><h1>Internship at Saleswhale</h1><p>I spent 4 months (May 2019 - Aug 2019) interning at a Singapore based startup called Saleswhale.</p></div></header>
-
-			<!-- Content -->
-			<div class="wrapper"><div class="inner"><h2 class="major">About Saleswhale</h2>
+<h2 class="major">About Saleswhale</h2>
 <p>Saleswhale is a Singapore based startup that was a part of the 2016 Y Combinator. Its AI sales assistant engages and qualifies marketing-generated leads at scale, through two-way intelligent email conversations, before handing over qualified leads to sales reps.</p>
+
 <h2 class="major">My Internship</h2>
 <p>I interned as part of the backend engineering team and helped develop its main product on a Ruby on Rails stack. I helped build multiple new features, and wrote various RESTful API endpoints for both internal and external facing tools.</p>
 <p> I also worked partially on some frontend development involving emberJS and nodeJS to implement new components and to fix bugs that directly affected customers.</p>
+
 <h2 class="major">My Takeaways</h2>
 <p>It was initially difficult to keep up with the fast paced working style of a budding startup, especially since I had never worked with Ruby on Rails before that.
 However, the emphasis on a culture of constant learning and radical candor allowed me to grow quickly not only as a developer, but also as a person. Despite lacking any experience, the interns were
@@ -51,25 +25,19 @@ trusted with working on customer facing products. We worked on various test envi
 Constant code reviews allowed me to develop a habit of test driven development, a skill which follows me through every project I would do from then on.
 I was treated not as an intern, but as a member of the Saleswhale family from the very first day. I can honestly say that I enjoyed every moment of working in Saleswhale.
 </p>
+
+
 <section class="features">
 <article>
+
 <h2 class="major">Intern Feature</h2>
 <p>I was featured in a Saleswhale article detailing the experiences of all interns in the company</p>
 <a href="https://blog.saleswhale.com/saleswhale-internships" target="_blank" class="special" aria-label="Learn more: Intern Feature" rel="noopener noreferrer">Learn More</a>
 </article>
 <article>
+
 <h2 class="major">Testimonial Letter</h2>
 <p>A letter of testimonial by my line manager. </p></br>
 <a href="Saleswhale_Testimonial_Letter.pdf" class="special" aria-label="Learn more: Testimonial Letter">Learn more</a>
 </article>
 </section>
-</div></div></section>
-		<footer class="site-footer" id="contact" aria-label="Contact and site information" data-site-footer></footer>
-
-		<!-- Scripts -->
-		<script src="assets/js/site-footer.js"></script>
-	<script src="assets/js/site.js"></script>
-
-</body>
-
-</html>

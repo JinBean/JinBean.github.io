@@ -1,51 +1,24 @@
-<!-- Generated from _work-items and _work/templates. Edit those sources, then run npm run build. -->
-<!DOCTYPE HTML>
-<!--
-	Solid State by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html lang="en-GB">
+---
+title: "Capture The Flag Mini-Challenge"
+page_title: "Capture The Flag Mini-Challenge"
+category: "Cybersecurity"
+section: "project"
+order: 3
+excerpt: "As part of a cybersecurity course, my team and I created a challenge for a jeopardy style Capture The Flag (CTF). The challenge includes basic CTF skills including cryptography and stenography."
+permalink: "/ctf.html"
+subtitle: "As part of a cybersecurity course, my team and I created a challenge for a jeopardy style Capture The Flag (CTF)."
+---
 
-<head>
-	<title>Capture The Flag Mini-Challenge · Tan Wei Jin</title>
-	<meta charset="utf-8" />
-	<link rel="shortcut icon" href="favicon.ico" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="assets/css/site.css" />
-
-</head>
-
-<body class="portfolio project">
-	<a class="skip-link" href="#wrapper">Skip to content</a>
-	<header class="site-header"><a class="site-brand" href="index.html" aria-label="Wei Jin home"><img
-				src="images/Jin2.png" alt="Jin" width="135" height="135" /></a>
-		<nav aria-label="Main navigation"><a href="index.html">Who Am I?</a><a href="work.html"
-				aria-current="location">Professional</a><a href="blog/index.html">Personal Blog</a><a href="CV_TanWeiJin.pdf"
-				target="_blank" rel="noopener noreferrer">Resume</a></nav>
-	</header>
-
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
-
-		<!-- Header -->
-
-
-		<!-- Menu -->
-
-
-		<!-- Wrapper -->
-		<section id="wrapper" role="main" tabindex="-1">
-			<header><div class="inner"><a class="back-link" href="work.html">← Professional</a><h1>Capture The Flag Mini-Challenge</h1><p>As part of a cybersecurity course, my team and I created a challenge for a jeopardy style Capture The Flag (CTF).</p></div></header>
-
-			<!-- Content -->
-			<div class="wrapper"><div class="inner"><h2 class="major">Challenge</h2>
+<h2 class="major">Challenge</h2>
 <p>The challenge can be found <a href="https://tlkh.github.io/cc-ctf-challenge/" target="_blank" rel="noopener noreferrer">here</a></p>
+
 <p>Due to the learning objectives of the course, the challenge is designed to be doable for people who are new to CTFs.
 The challenge includes basic CTF skills including (but not limited to) cryptography and stenography.</p>
+
 <h2 class="major">CTF Walkthrough</h2>
 <button class="spoilerbutton" type="button" aria-expanded="false" aria-controls="ctf-solution">Show Solution</button>
 <div class="spoiler" id="ctf-solution" hidden><div>
+
 <p>  </p>
 <ol type="1">
 <li>Query the terminal server using <code>remi</code> to read the initial story</li>
@@ -61,15 +34,6 @@ The challenge includes basic CTF skills including (but not limited to) cryptogra
 <li>Decipher the plaintext by reverse-engineering “door.py” and un-map the ciphertext to get "4354467b346c6c5f6a3030725f663030647a5f3472335f62336c306e675f325f6d335f6e3077217d"</li>
 <li>Hex decode the ciphertext to get the flag “ctf{4ll_j00r_f00dz_4r3_b3l0ng_2_m3_n0w!}”</li>
 </ol>
+
 </div>
 </div>
-</div></div></section>
-		<footer class="site-footer" id="contact" aria-label="Contact and site information" data-site-footer></footer>
-
-		<!-- Scripts -->
-		<script src="assets/js/site-footer.js"></script>
-	<script src="assets/js/site.js"></script>
-
-</body>
-
-</html>

@@ -1,0 +1,19 @@
+{
+  "name": "jinbean-personal-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-blog.mjs && node scripts/build-work.mjs",
+    "dev": "node scripts/preview.mjs",
+    "new:article": "node scripts/new-article.mjs",
+    "new:work": "node scripts/new-work.mjs",
+    "test": "node --test scripts/blog.test.mjs scripts/work.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "gray-matter": "4.0.3",
+    "markdown-it": "14.1.0"
+  }
+}
