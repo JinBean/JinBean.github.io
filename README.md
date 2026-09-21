@@ -54,23 +54,23 @@ Run:
 npm run new:article -- "My article title" "Developer"
 ```
 
-The second argument is optional and accepts `Developer`, `Alumni` or `Art Manager`. It defaults to `Developer` and is case-sensitive.
+The command accepts only the article title and an optional category. The second argument accepts `Developer`, `Alumni` or `Art Manager`; it defaults to `Developer` and is case-sensitive. The publication date is filled in automatically using today's date in Singapore and is not a command argument.
 
 The command creates `_content/blog/articles/my-article-title.md` as an unpublished draft. A complete starting example is available at `_content/blog/article-template.md`.
 
-Blog front matter supports:
+The generated file contains the following front matter:
 
-| Setting | Required | Description |
+| Setting | How it is set | Description |
 | --- | --- | --- |
-| `title` | Yes | Full article title. |
-| `date` | Yes | Publication date in `YYYY-MM-DD` format; also controls listing order. |
-| `category` | Yes | `Developer`, `Alumni` or `Art Manager`. |
-| `excerpt` | Recommended | Summary shown on article cards. The first paragraph is used when omitted. |
-| `published` | No | New articles use `false`; change it to `true` when ready. |
-| `card_title` | No | Shorter title used only on listing cards. |
-| `subtitle` | No | Introduction beneath the article title. |
-| `display_date` | No | Custom visible date; `date` still controls sorting. |
-| `permalink` | No | Custom output path. The generated default is suitable for most articles. |
+| `title` | First command argument | Full article title. |
+| `date` | Added automatically | Today's date in `YYYY-MM-DD` format; also controls listing order. Edit it later if needed. |
+| `category` | Optional second argument | `Developer`, `Alumni` or `Art Manager`. |
+| `excerpt` | Edit in the draft | Summary shown on article cards. The first paragraph is used when omitted. |
+| `published` | Starts as `false` | Change it to `true` when the article is ready. |
+| `card_title` | Optional | Shorter title used only on listing cards. |
+| `subtitle` | Optional | Introduction beneath the article title. |
+| `display_date` | Optional | Custom visible date; `date` still controls sorting. |
+| `permalink` | Optional | Custom output path. The generated default is suitable for most articles. |
 
 ## Create a Professional article
 
