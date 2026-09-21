@@ -4,47 +4,34 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en-GB">
 	<head>
 		<title>Tan Wei Jin</title>
 		<meta charset="utf-8" />
 		<link rel="shortcut icon" href="favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/work.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/site.css" />
+
 	</head>
-	<body class="is-preload">
+	<body class="portfolio project">
+	<a class="skip-link" href="#wrapper">Skip to content</a>
+	<header class="site-header"><a class="site-brand" href="index.html" aria-label="Wei Jin home"><img src="images/Jin2.png" alt="Jin" width="135" height="135" /></a><nav aria-label="Main navigation"><a href="index.html">Who Am I?</a><a href="work.html" aria-current="location">Professional</a><a href="blog/index.html">Personal Blog</a><a href="CV_TanWeiJin.pdf" target="_blank" rel="noopener noreferrer">Resume</a></nav></header>
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<h1><a href="work">Wei Jin</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+
 
 				<!-- Menu -->
-				<nav id="menu">
-					<div class="inner">
-						<h2>Menu</h2>
-						<ul class="links">
-							<li><a href="index">Home</a></li>
-							<li><a href="work">Professional</a></li>
-							<li><a href="personal">Personal</a></li>
-							<li><a href="CV_TanWeiJin.pdf">Resume</a></li>
-						</ul>
-						<a href="#" class="close">Close</a>
-					</div>
-				</nav>
+
 
 				<!-- Wrapper -->
-					<section id="wrapper" style="background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url(images/bgblue.jpg);">
+					<section id="wrapper" role="main" tabindex="-1">
 						<header>
 							<div class="inner">
-								<h2>Capture The Flag Mini-Challenge</h2>
+								<a class="back-link" href="work.html">← Professional</a>
+<h1>Capture The Flag Mini-Challenge</h1>
 								<p>As part of a cybersecurity course, my team and I created a challenge for a jeopardy style Capture The Flag (CTF). </p>
 							</div>
 						</header>
@@ -53,15 +40,15 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">Challenge</h3>
-									<p>The challenge can be found <a href="https://tlkh.github.io/cc-ctf-challenge/" target="_blank">here</a></p>
+									<h2 class="major">Challenge</h2>
+									<p>The challenge can be found <a href="https://tlkh.github.io/cc-ctf-challenge/" target="_blank" rel="noopener noreferrer">here</a></p>
 
 									<p>Due to the learning objectives of the course, the challenge is designed to be doable for people who are new to CTFs.
 										The challenge includes basic CTF skills including (but not limited to) cryptography and stenography.</p>
 
-									<h3 class="major">CTF Walkthrough</h3>
-									<input class="spoilerbutton" type="button" value="Show Solution" onclick="this.value=this.value=='Show Solution'?'Hide Solution':'Show Solution';">
-										<div class="spoiler"><div>
+									<h2 class="major">CTF Walkthrough</h2>
+									<button class="spoilerbutton" type="button" aria-expanded="false" aria-controls="ctf-solution">Show Solution</button>
+										<div class="spoiler" id="ctf-solution" hidden><div>
 
 										<p>  </p>
 										<ol type="1">
@@ -70,7 +57,7 @@
 											<li>Run <code>strings meatballs.jpg</code> in your terminal to obtain a ciphertext "pASARFeDXPsj4V5u7qTOYoHzljCS+lc8YmSG/IiYJq74qKT3fcQAvuT24WJlMoMIinB9eKYGbR4FXRsAZ+kdbrytAmSDxFv33YARollK0IvXBVgVLsE9dmGghi71J9FP". Store this away for now.</li>
 											<li>Query the terminal server with <code>inventory find spaghetti</code> and download the image "spaghetti.jpg"</li>
 											<li>Use <code>steghide -extract -sf spaghetti.jpg</code> in your terminal with the password "spaghetti" to extract a file "recipe.txt"</li>
-											<li>Enter the contents of "recipe.txt" through an online <a href="http://p-helpers.appspot.com/chef/chef.html" target="_blank">Chef Esolang decoder</a> to obtain the ciphertext "PurrflTneyvpXabg"</li>
+											<li>Enter the contents of "recipe.txt" through an online <a href="http://p-helpers.appspot.com/chef/chef.html" target="_blank" rel="noopener noreferrer">Chef Esolang decoder</a> to obtain the ciphertext "PurrflTneyvpXabg"</li>
 											<li>Rot13 the ciphertext to obtain the key "CheesyGarlicKnot</li>
 											<li>You can query the terminal server with <code>inventory find CheesyGarlicKnot</code> to obtain more clues</li>
 											<li>AES-ECB decrypt the ciphertext obtained from "meatballs.jpg" with "CheesyGarlicKnot" as the key to obtain the ciphertext "6b6261721244591492597245de07dbef1626b472244f340614f9083c6e683a7c046c0f0a46360f5b"</li>
@@ -86,14 +73,11 @@
 							</div>
 
 					</section>
+<footer class="site-footer" id="contact" aria-label="Contact and site information" data-site-footer></footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/work.js"></script>
+			<script src="assets/js/site-footer.js"></script>
+	<script src="assets/js/site.js"></script>
 
 	</body>
 </html>

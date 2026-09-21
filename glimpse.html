@@ -4,47 +4,34 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en-GB">
 	<head>
 		<title>Tan Wei Jin</title>
 		<meta charset="utf-8" />
 		<link rel="shortcut icon" href="favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/work.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/site.css" />
+
 	</head>
-	<body class="is-preload">
+	<body class="portfolio project">
+	<a class="skip-link" href="#wrapper">Skip to content</a>
+	<header class="site-header"><a class="site-brand" href="index.html" aria-label="Wei Jin home"><img src="images/Jin2.png" alt="Jin" width="135" height="135" /></a><nav aria-label="Main navigation"><a href="index.html">Who Am I?</a><a href="work.html" aria-current="location">Professional</a><a href="blog/index.html">Personal Blog</a><a href="CV_TanWeiJin.pdf" target="_blank" rel="noopener noreferrer">Resume</a></nav></header>
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
 				<!-- Header -->
-					<header id="header">
-						<h1><a href="work">Wei Jin</a></h1>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+
 
 				<!-- Menu -->
-				<nav id="menu">
-					<div class="inner">
-						<h2>Menu</h2>
-						<ul class="links">
-							<li><a href="index">Home</a></li>
-							<li><a href="work">Professional</a></li>
-							<li><a href="personal">Personal</a></li>
-							<li><a href="CV_TanWeiJin.pdf">Resume</a></li>
-						</ul>
-						<a href="#" class="close">Close</a>
-					</div>
-				</nav>
+
 
 				<!-- Wrapper -->
-					<section id="wrapper" style="background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url(images/bgblue.jpg);">
+					<section id="wrapper" role="main" tabindex="-1">
 						<header>
 							<div class="inner">
-								<h2>GLIMPSE: A PUBLIC SPACE PROJECT</h2>
+								<a class="back-link" href="work.html">← Professional</a>
+<h1>GLIMPSE: A PUBLIC SPACE PROJECT</h1>
 								<p>A potential solution to imperfect information regarding the usage of public spaces.</p>
 							</div>
 						</header>
@@ -53,25 +40,25 @@
 							<div class="wrapper">
 								<div class="inner">
 
-									<h3 class="major">About</h3>
+									<h2 class="major">About</h2>
 									<p>Singapore has a large number of recreational spaces in every neighbourhood that are free for everyone to use. These spaces include basketball courts, badminton courts, street soccer courts, and even playgrounds. However, the want to use these public spaces can be hindered by the lack of knowledge as to whether the space is occupied at any given time. This problem has yet to been solved even till today. Our project aims at solving this problem in an effective and convenient way.</p>
 
 									<p>Our solution includes adding a small camera that overlooks each space. This camera, with the help of computer vision, will help identify the total number people using the facility at every given period of time. This information is then sent to a central database. The data is pulled by a phone application which can then be accessed by everyone with that application installed. Only the numerical capacity will be displayed on the app and not the pictures taken as to provide as much information as possible while still maintaining privacy.</p>
 
-									<h3 class="major">Implementation</h3>
+									<h2 class="major">Implementation</h2>
 									<p>As a proof of concept, we applied our solution on a smaller scale within our school campus.
 
 										We used a small web camera to monitor two pool tables. A LattePanda is then used to simulate a back-end to detect people using a convolusional neural network which then pushes the final data to a common database. The camera takes a photo of the tables every 30 seconds. Once the detection is done on these photos, the identified number of people as well as the date and time is pushed to firebase.</p>
 
-									<h3 class="major">Improvements</h3>
+									<h2 class="major">Improvements</h2>
 									<p>Some improvements that could be made would involve a server that is able to handle more computationally intensive processing. This could allow for a real time detection stream, as well as the blurring out of people's faces for additional privacy.</p>
 
 									<section class="features">
 										<article>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-											<h3 class="major">GitHub Repository</h3>
+
+											<h2 class="major">GitHub Repository</h2>
 											<p>Here are the source files for the project. It includes screenshots of the application as well as short descriptions for each page.</p>
-											<a href="https://github.com/JinBean/Glimpse" class="special">Learn more</a>
+											<a href="https://github.com/JinBean/Glimpse" class="special" aria-label="Learn more: GitHub Repository">Learn more</a>
 										</article>
 									</section>
 
@@ -79,14 +66,11 @@
 							</div>
 
 					</section>
+<footer class="site-footer" id="contact" aria-label="Contact and site information" data-site-footer></footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/work.js"></script>
+			<script src="assets/js/site-footer.js"></script>
+	<script src="assets/js/site.js"></script>
 
 	</body>
 </html>
