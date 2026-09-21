@@ -28,15 +28,15 @@ I was treated not as an intern, but as a member of the Saleswhale family from th
 <section class="features">
 <article>
 
+<h2 class="major">Testimonial Letter</h2>
+<p>A letter of testimonial by my line manager. </p></br>
+<a href="Saleswhale_Testimonial_Letter.pdf" class="special" aria-label="Learn more: Testimonial Letter">Learn more</a>
+</article>
+</section>
+
 <h2 class="major">Intern Feature</h2>
 <p>I was featured in a Saleswhale article detailing the experiences of all interns in the company</p>
 <p><i>The blog was taken down after Saleswhale was acquired, so this links to the wayback machine</i></p>
 <a href="https://web.archive.org/web/20190824094604/https://blog.saleswhale.com/saleswhale-internships" target="_blank" class="special" aria-label="Learn more: Intern Feature" rel="noopener noreferrer">Learn More</a>
 </article>
 <article>
-
-<h2 class="major">Testimonial Letter</h2>
-<p>A letter of testimonial by my line manager. </p></br>
-<a href="Saleswhale_Testimonial_Letter.pdf" class="special" aria-label="Learn more: Testimonial Letter">Learn more</a>
-</article>
-</section>

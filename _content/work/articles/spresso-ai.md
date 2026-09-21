@@ -3,8 +3,8 @@ title: "Spresso.AI"
 category: "Full Time Job"
 section: "featured"
 order: 1
-excerpt: "I spent 4+ years building ecommerce platforms in Typescript and Node.js"
-subtitle: "I spent 4+ years building ecommerce platforms in Typescript and Node.js"
+excerpt: "I spent 4+ years working remotely for a New York based company, building ecommerce platforms in Typescript and Node.js."
+subtitle: "I spent 4+ years working remotely for a New York based company, building ecommerce platforms in Typescript and Node.js."
 image: "/images/personal/SpressoAILogo.jpeg"
 image_alt: "Spresso.AI logo"
 published: true
@@ -38,8 +38,6 @@ I was also fortunate to work with a distributed team where a lot of trust was pl
 <a href="/SpressoAI_Testimonial.pdf" class="special" aria-label="Learn more: Testimonial Letter">Learn more</a>
 </article>
 </section>
-
-
 
 <section class="features">
 <article>
