@@ -6,8 +6,8 @@ import { buildWork, readWork, root } from './build-work.mjs';
 
 function fixture(t){
   const directory=fs.mkdtempSync(path.join(root,'.work-test-'));
-  fs.cpSync(path.join(root,'_work'),path.join(directory,'_work'),{recursive:true});
-  fs.cpSync(path.join(root,'_work-items'),path.join(directory,'_work-items'),{recursive:true});
+  fs.mkdirSync(path.join(directory,'_content/work'),{recursive:true});
+  fs.cpSync(path.join(root,'_content/work'),path.join(directory,'_content/work'),{recursive:true});
   t.after(()=>{
     const resolved=path.resolve(directory);
     assert.equal(path.dirname(resolved),root);
@@ -20,7 +20,7 @@ const entry=(extra='')=>`---\ntitle: "A useful project"\ncategory: "Accessibilit
 test('one Markdown file generates a work article and the correct listing section',t=>{
   const directory=fixture(t);
   const startingCount=buildWork(directory).items;
-  fs.writeFileSync(path.join(directory,'_work-items/useful-project.md'),entry());
+  fs.writeFileSync(path.join(directory,'_content/work/articles/useful-project.md'),entry());
   const result=buildWork(directory);
   assert.equal(result.items,startingCount+1);
   const article=fs.readFileSync(path.join(directory,'work/useful-project/index.html'),'utf8');
@@ -34,7 +34,7 @@ test('one Markdown file generates a work article and the correct listing section
   assert.ok(listing.indexOf('A useful project')>listing.indexOf('More Projects'));
 });
 test('featured metadata renders an image and drafts stay out of the site',t=>{
-  const directory=fixture(t),file=path.join(directory,'_work-items/useful-project.md');
+  const directory=fixture(t),file=path.join(directory,'_content/work/articles/useful-project.md');
   fs.writeFileSync(file,entry('section: featured\nimage: "/images/example.jpg"\nimage_alt: "Example project"').replace('section: "project"\n',''));
   buildWork(directory);
   assert.match(fs.readFileSync(path.join(directory,'work.html'),'utf8'),/work-media--placeholder/);
@@ -48,7 +48,7 @@ test('featured metadata renders an image and drafts stay out of the site',t=>{
   assert.doesNotMatch(fs.readFileSync(path.join(directory,'work.html'),'utf8'),/A useful project/);
 });
 test('listing-only items work and invalid metadata fails before output changes',t=>{
-  const directory=fixture(t),file=path.join(directory,'_work-items/useful-project.md');
+  const directory=fixture(t),file=path.join(directory,'_content/work/articles/useful-project.md');
   buildWork(directory);
   const before=fs.readFileSync(path.join(directory,'work.html'),'utf8');
   fs.writeFileSync(file,entry('page: false').replace('\n\nAn introduction.\n\n## What I did\n\n- Audited the interface\n- Improved the navigation\n',''));

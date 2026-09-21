@@ -1,9 +1,13 @@
-_site
-.sass-cache
-.jekyll-cache
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
-vendor
+vendor/
 node_modules/
 .npm-cache/
 .blog-test-*/
 .work-test-*/
+.agents/
+*.log
+.DS_Store
+Thumbs.db

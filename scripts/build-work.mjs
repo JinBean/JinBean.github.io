@@ -9,7 +9,7 @@ export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 const sections = ['featured','experience','project'];
 const markdown = new MarkdownIt({ html:true, typographer:false });
 const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const renderTemplate = (name,values,directory) => fs.readFileSync(path.join(directory,'_work/templates',name+'.html'),'utf8').replace(/\{\{(\w+)\}\}/g,(_,key)=>{
+const renderTemplate = (name,values,directory) => fs.readFileSync(path.join(directory,'_content/work/templates',name+'.html'),'utf8').replace(/\{\{(\w+)\}\}/g,(_,key)=>{
   if(!(key in values))throw new Error(`Missing work template value: ${key}`);
   return values[key];
 });
@@ -36,8 +36,8 @@ const splitArticleResources = html => {
 
 export function readWork(directory=root) {
   const seen=new Set();
-  return fs.readdirSync(path.join(directory,'_work-items')).filter(file=>file.endsWith('.md')).map(file=>{
-    const {data,content}=matter(fs.readFileSync(path.join(directory,'_work-items',file),'utf8'));
+  return fs.readdirSync(path.join(directory,'_content/work/articles')).filter(file=>file.endsWith('.md')).map(file=>{
+    const {data,content}=matter(fs.readFileSync(path.join(directory,'_content/work/articles',file),'utf8'));
     for(const key of ['title','category','section']) if(typeof data[key]!=='string'||!data[key].trim())throw new Error(`${file}: ${key} is required`);
     if(!sections.includes(data.section))throw new Error(`${file}: section must be featured, experience or project`);
     if(!Number.isInteger(data.order)||data.order<1)throw new Error(`${file}: order must be a positive whole number`);
@@ -78,9 +78,9 @@ export function buildWork(directory=root) {
   }).join('\n')}</section>`;
   outputs.set('work.html',renderTemplate('index',{featured,experiences:cards('experience'),projects:cards('project')},directory));
 
-  const manifestFile=path.join(directory,'_work/generated.json');
+  const manifestFile=path.join(directory,'_content/work/generated.json');
   const previous=fs.existsSync(manifestFile)?JSON.parse(fs.readFileSync(manifestFile,'utf8')):[];
-  const banner='<!-- Generated from _work-items and _work/templates. Edit those sources, then run npm run build. -->\n';
+  const banner='<!-- Generated from _content/work. Edit those sources, then run npm run build. -->\n';
   for(const [file] of outputs){
     const target=path.join(directory,file);
     if(fs.existsSync(target)&&!previous.includes(file))throw new Error(`Work output already exists and is not managed: ${file}`);

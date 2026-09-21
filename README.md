@@ -1,6 +1,8 @@
 # JinBean.github.io
 
-## Create articles with Markdown
+Tan Wei Jin's static portfolio and personal blog. The public site is plain HTML, CSS and JavaScript; Blog and Professional articles are authored in Markdown and generated with Node.js.
+
+## Quick start
 
 Install the site tools once:
 
@@ -8,9 +10,43 @@ Install the site tools once:
 npm install
 ```
 
-All Blog and Professional articles are written as Markdown files. The build commands create the styled HTML pages and update their listings automatically.
+Start the local preview:
 
-### Create a Blog article
+```powershell
+npm run dev
+```
+
+Open `http://localhost:4173/`. The preview rebuilds article content and reloads the browser after a saved change. Use `npm run dev -- --port 4174` if port 4173 is occupied.
+
+## Repository layout
+
+```text
+_content/
+  blog/
+    articles/          Blog Markdown files
+    templates/         Blog page templates
+    article-template.md
+    generated.json     Generated-file manifest
+  work/
+    articles/          Professional Markdown files
+    templates/         Professional page templates
+    article-template.md
+    generated.json     Generated-file manifest
+assets/
+  css/                 Shared and page-specific styles
+  js/                  Shared behaviour and footer component
+  webfonts/            Font Awesome files
+blog/                  Generated Blog pages
+images/                Site and article images
+scripts/               Build, preview, creation and test tools
+work/                  Generated clean-URL Professional pages
+index.html              Homepage
+work.html               Generated Professional listing
+```
+
+Files in `_content` are the authoring sources. Do not edit generated Blog pages, `work.html`, or generated Professional detail pages directly because the next build replaces them.
+
+## Create a Blog article
 
 Run:
 
@@ -18,96 +54,77 @@ Run:
 npm run new:article -- "My article title" "Developer"
 ```
 
-Arguments, in order:
+The second argument is optional and accepts `Developer`, `Alumni` or `Art Manager`. It defaults to `Developer` and is case-sensitive.
 
-| Argument | Required | Options | Purpose |
-| --- | --- | --- | --- |
-| `title` | Yes | Any title | Used as the article title and to create the filename. Keep the quotation marks when the title contains spaces. |
-| `category` | No | `Developer`, `Alumni`, `Art Manager` | Controls which Blog category contains the article. Defaults to `Developer`. Values are case-sensitive. |
+The command creates `_content/blog/articles/my-article-title.md` as an unpublished draft. A complete starting example is available at `_content/blog/article-template.md`.
 
-Examples:
-
-```powershell
-npm run new:article -- "Learning from a side project"
-npm run new:article -- "Life after university" "Alumni"
-npm run new:article -- "Growing a creative account" "Art Manager"
-```
-
-The command creates a file in `_articles`, such as `_articles/learning-from-a-side-project.md`. It refuses to replace a file with the same generated name.
-
-A Blog article supports these settings at the top of its Markdown file:
+Blog front matter supports:
 
 | Setting | Required | Description |
 | --- | --- | --- |
-| `title` | Yes | Full title shown on the article page. |
-| `date` | Yes | Publication date in `YYYY-MM-DD` format. This also controls listing order. |
-| `category` | Yes | One of the three Blog categories listed above. |
-| `excerpt` | Recommended | Short summary shown on the article card. When omitted, the first paragraph is used. |
-| `published` | No | New articles use `false`. Change it to `true` when the article is ready. |
-| `card_title` | No | Shorter title used only on article cards. |
-| `subtitle` | No | Short introduction shown beneath the title on the article page. |
-| `display_date` | No | Custom display text for the date. The `date` setting still controls sorting. |
-| `permalink` | No | Custom output path. Most new articles should use the generated default. |
+| `title` | Yes | Full article title. |
+| `date` | Yes | Publication date in `YYYY-MM-DD` format; also controls listing order. |
+| `category` | Yes | `Developer`, `Alumni` or `Art Manager`. |
+| `excerpt` | Recommended | Summary shown on article cards. The first paragraph is used when omitted. |
+| `published` | No | New articles use `false`; change it to `true` when ready. |
+| `card_title` | No | Shorter title used only on listing cards. |
+| `subtitle` | No | Introduction beneath the article title. |
+| `display_date` | No | Custom visible date; `date` still controls sorting. |
+| `permalink` | No | Custom output path. The generated default is suitable for most articles. |
 
-### Create a Professional article
+## Create a Professional article
 
 Run:
-
-Create a Professional entry:
 
 ```powershell
 npm run new:work -- "My project title" "Software development" "project"
 ```
 
-Arguments, in order:
+The category and section arguments are optional. Sections are:
 
-| Argument | Required | Options | Purpose |
-| --- | --- | --- | --- |
-| `title` | Yes | Any title | Used as the article title and to create the filename. |
-| `category` | No | Any short label | Tag shown on the Professional card. Defaults to `Software development`. |
-| `section` | No | `featured`, `experience`, `project` | Controls where the card appears. Defaults to `project`. Values are case-sensitive. |
-
-The section options are:
-
-| Section | Appears in | Design |
+| Section | Location | Presentation |
 | --- | --- | --- |
-| `featured` | Top of the Professional page | Large highlighted row with an optional image. |
+| `featured` | Top of the Professional page | Highlighted row with an image or blank placeholder. |
 | `experience` | Experiences | Compact experience card. |
 | `project` | More Projects | Compact project card. |
 
-Examples:
+The command creates `_content/work/articles/my-project-title.md`, assigns the next order number in that section and starts it as an unpublished draft. A complete starting example is available at `_content/work/article-template.md`.
 
-```powershell
-npm run new:work -- "My latest role" "Internship" "featured"
-npm run new:work -- "Community leadership" "Leadership" "experience"
-npm run new:work -- "Accessibility audit" "User experience" "project"
-```
-
-The command creates a file in `_work-items`, assigns the next order number for the chosen section and starts it as an unpublished draft.
-
-A Professional article supports these settings:
+Professional front matter supports:
 
 | Setting | Required | Description |
 | --- | --- | --- |
-| `title` | Yes | Title shown on its card. |
-| `category` | Yes | Short category tag shown above the title. |
+| `title` | Yes | Title shown on the card. |
+| `category` | Yes | Short category tag. |
 | `section` | Yes | `featured`, `experience` or `project`. |
-| `order` | Yes | Positive whole number. Lower numbers appear first within their section. |
-| `excerpt` | Recommended | Short summary shown on the card. |
-| `published` | No | New entries use `false`. Change it to `true` when ready. |
-| `page_title` | No | Different title used on the detail page. |
-| `subtitle` | No | Introductory line beneath the detail-page title. |
+| `order` | Yes | Positive whole number; lower numbers appear first in the section. |
+| `excerpt` | Recommended | Summary shown on the card. |
+| `published` | No | New entries use `false`; change it to `true` when ready. |
+| `page_title` | No | Different title for the detail page. |
+| `subtitle` | No | Introduction beneath the detail-page title. |
 | `secondary_excerpt` | No | Optional second paragraph on the card. |
-| `image` | Featured only | Root-relative path such as `/images/my-project.jpg`. A blank square appears on the highlighted card when the path is empty, missing or cannot be loaded. |
-| `image_alt` | With an image | Brief description of the image. |
-| `page` | No | Set to `false` for a listing-only card with no detail page. |
-| `permalink` | No | Custom output path. Existing articles use this to preserve their original URLs. |
+| `image` | Featured only | Root-relative path such as `/images/my-project.jpg`. Missing images use a blank square. |
+| `image_alt` | With an image | Brief image description. |
+| `page` | No | Set to `false` for a listing-only entry. |
+| `permalink` | No | Custom output path, mainly for preserving an existing address. |
 
-See `_work/work-template.md` for a complete starting example.
+### Add related links
 
-### Write the article
+A final `<section class="features">` block in a Professional article becomes the related-links sidebar. Each link opens in a new tab. Use one `<article>` per resource:
 
-Everything below the second `---` line is the article body:
+```html
+<section class="features">
+<article>
+<h2 class="major">Project repository</h2>
+<p>Source files and implementation notes.</p>
+<a href="https://example.com" class="special">Learn more</a>
+</article>
+</section>
+```
+
+## Write article content
+
+Everything after the closing `---` in an article file is Markdown:
 
 ```markdown
 Write your introduction here.
@@ -122,52 +139,28 @@ Describe the work, your role and the result.
 ![Description of the image](/images/my-image.jpg)
 ```
 
-Place article images in the `images` directory and use a root-relative `/images/...` path.
+Place images in `images` and use root-relative `/images/...` paths.
 
-### Publish and preview
+## Build and check
 
-When an article is ready, change:
-
-```yaml
-published: false
-```
-
-to:
-
-```yaml
-published: true
-```
-
-Start the preview:
-
-```powershell
-npm run dev
-```
-
-This rebuilds the listings and article pages whenever a Markdown file or template changes. Open `http://localhost:4173/` and refresh after saving. If that port is occupied, use `npm run dev -- --port 4174`.
-
-The preview watches `_articles`, `_work-items` and their templates. Save your Markdown file, then refresh the browser. If port 4173 is occupied, use:
-
-```powershell
-npm run dev -- --port 4174
-```
-
-Build without starting the preview:
+Generate all article pages without starting the preview:
 
 ```powershell
 npm run build
 ```
 
-Run the checks after changing the content system:
+Run the content-system checks:
 
 ```powershell
 npm test
 ```
 
-Do not edit generated Blog pages, `work.html`, or generated Professional detail pages directly; the next build replaces them. Edit `_articles`, `_work-items`, `_blog/templates` or `_work/templates` instead.
+## Shared site components
 
-## Shared footer
+- Edit `assets/css/site.css` for shared presentation.
+- Edit `assets/css/home.css` for homepage-only presentation.
+- Edit `assets/js/site-footer.js` for footer copy and contact links.
+- Edit `scripts/card-link.mjs` to change the shared Blog and Professional card action.
+- Edit `_content/blog/templates` or `_content/work/templates` for generated page structure.
 
-Edit `assets/js/site-footer.js` to update the footer copy, contact links or copyright across the site. The shared layout rules are in `assets/css/site.css`.
-
-Each page has one `<footer class="site-footer" id="contact" aria-label="Contact and site information" data-site-footer></footer>` placeholder and loads `site-footer.js` before `site.js`. Use the appropriate relative path for nested pages. The component renders synchronously without a separate network request for HTML, and preserves the `#contact` and `#note` anchors. Footer rendering requires JavaScript.
+The footer is rendered from one shared JavaScript component while preserving the `#contact` and `#note` anchors.

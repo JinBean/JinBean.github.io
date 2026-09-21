@@ -9,7 +9,7 @@ export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 export const categories = { Developer: 'personal_developer.html', Alumni: 'personal_alumni.html', 'Art Manager': 'personal_art.html' };
 const markdown = new MarkdownIt({ html: true, typographer: false });
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const template = (name, values, directory) => fs.readFileSync(path.join(directory, '_blog/templates', name + '.html'), 'utf8').replace(/\{\{(\w+)\}\}/g, (_, key) => {
+const template = (name, values, directory) => fs.readFileSync(path.join(directory, '_content/blog/templates', name + '.html'), 'utf8').replace(/\{\{(\w+)\}\}/g, (_, key) => {
   if (!(key in values)) throw new Error(`Missing template value: ${key}`);
   return values[key];
 });
@@ -17,8 +17,8 @@ const plain = html => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
 const dateLabel = date => new Intl.DateTimeFormat('en-GB', {day:'2-digit',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(date));
 export function readArticles(directory = root) {
   const seen = new Set();
-  return fs.readdirSync(path.join(directory, '_articles')).filter(f => f.endsWith('.md')).map(file => {
-    const { data, content } = matter(fs.readFileSync(path.join(directory, '_articles', file), 'utf8'));
+  return fs.readdirSync(path.join(directory, '_content/blog/articles')).filter(f => f.endsWith('.md')).map(file => {
+    const { data, content } = matter(fs.readFileSync(path.join(directory, '_content/blog/articles', file), 'utf8'));
     for (const key of ['title','category']) if (typeof data[key] !== 'string' || !data[key].trim()) throw new Error(`${file}: ${key} is required`);
     if (!Object.hasOwn(categories, data.category)) throw new Error(`${file}: category must be Developer, Alumni or Art Manager`);
     const date = data.date instanceof Date ? data.date.toISOString().slice(0,10) : String(data.date);
@@ -57,9 +57,9 @@ export function build(directory = root) {
     }).join('\n')}</section>` : '<section class="empty-posts"><p>No posts in this category yet.</p><a class="special" href="index.html">Browse all posts</a></section>';
     outputs.set('blog/'+output, template(name,{posts},directory));
   }
-  const manifestFile = path.join(directory,'_blog/generated.json');
+  const manifestFile = path.join(directory,'_content/blog/generated.json');
   const previous = fs.existsSync(manifestFile) ? JSON.parse(fs.readFileSync(manifestFile,'utf8')) : [];
-  const banner = '<!-- Generated from _articles and _blog/templates. Edit those sources, then run npm run build. -->\n';
+  const banner = '<!-- Generated from _content/blog. Edit those sources, then run npm run build. -->\n';
   // Validate ownership before writing anything; never replace an unrelated page.
   for (const [file] of outputs) {
     const target = path.join(directory,file);

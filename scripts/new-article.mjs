@@ -10,6 +10,6 @@ if (!title || !Object.hasOwn(categories,category)) {
 const slug = title.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 if(!slug) throw new Error('Use at least one letter or number in the title');
 const date = new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Singapore',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
-const filename = path.join(root,'_articles',slug+'.md');
+const filename = path.join(root,'_content/blog/articles',slug+'.md');
 fs.writeFileSync(filename,`---\ntitle: ${JSON.stringify(title)}\ndate: "${date}"\ncategory: ${JSON.stringify(category)}\nexcerpt: "A short summary for the article card."\npublished: false\n---\n\nWrite your introduction here.\n\n## A section heading\n\nWrite your article here.\n`,{flag:'wx'});
-console.log(`Created _articles/${slug}.md. Change published to true when ready.`);
+console.log(`Created _content/blog/articles/${slug}.md. Change published to true when ready.`);

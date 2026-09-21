@@ -23,7 +23,7 @@ const scheduleRefresh=rebuild=>{
     } catch(error) { console.error('Content not rebuilt:',error.message); }
   },150);
 };
-for(const directory of ['_articles','_blog/templates','_work-items','_work/templates']){
+for(const directory of ['_content/blog/articles','_content/blog/templates','_content/work/articles','_content/work/templates']){
   fs.watch(path.join(root,directory),()=>scheduleRefresh(true));
 }
 for(const directory of ['assets/css','assets/js','images']){
