@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import matter from 'gray-matter';
+import { renderCardLink } from './card-link.mjs';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const categories = { Developer: 'personal_developer.html', Alumni: 'personal_alumni.html', 'Art Manager': 'personal_art.html' };
@@ -52,7 +53,7 @@ export function build(directory = root) {
     const posts = selected.length ? `<section class="posts">${selected.map(a => {
       const title = escape(a.card_title || a.title);
       const href = a.url.slice('/blog/'.length);
-      return `<article><header><div class="post-meta"><span class="date">${escape(dateLabel(a.date))}</span>${category ? '' : `<span class="post-category">${escape(a.category)}</span>`}</div><h2><a href="${href}">${title}</a></h2></header><p>${escape(a.excerpt)}</p><a href="${href}" class="post-link" aria-label="Read full post: ${title}">Read full post <span aria-hidden="true">→</span></a></article>`;
+      return `<article><header><div class="post-meta"><span class="date">${escape(dateLabel(a.date))}</span>${category ? '' : `<span class="post-category">${escape(a.category)}</span>`}</div><h2><a href="${href}">${title}</a></h2></header><p>${escape(a.excerpt)}</p>${renderCardLink({href,title:a.card_title||a.title,className:'post-link'})}</article>`;
     }).join('\n')}</section>` : '<section class="empty-posts"><p>No posts in this category yet.</p><a class="special" href="index.html">Browse all posts</a></section>';
     outputs.set('blog/'+output, template(name,{posts},directory));
   }

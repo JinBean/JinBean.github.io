@@ -3,14 +3,13 @@ title: "Internship at Saleswhale"
 page_title: "Internship at Saleswhale"
 category: "Internship"
 section: "featured"
-order: 1
+order: 2
 excerpt: "I spent 4 months (May 2019 - Aug 2019) interning as a backend developer at a Singapore based startup called Saleswhale."
 permalink: "/saleswhale.html"
 subtitle: "I spent 4 months (May 2019 - Aug 2019) interning at a Singapore based startup called Saleswhale."
 image: "/images/personal/SaleswhaleLogo.png"
 image_alt: "Saleswhale logo"
 ---
-
 <h2 class="major">About Saleswhale</h2>
 <p>Saleswhale is a Singapore based startup that was a part of the 2016 Y Combinator. Its AI sales assistant engages and qualifies marketing-generated leads at scale, through two-way intelligent email conversations, before handing over qualified leads to sales reps.</p>
 
@@ -26,13 +25,13 @@ Constant code reviews allowed me to develop a habit of test driven development, 
 I was treated not as an intern, but as a member of the Saleswhale family from the very first day. I can honestly say that I enjoyed every moment of working in Saleswhale.
 </p>
 
-
 <section class="features">
 <article>
 
 <h2 class="major">Intern Feature</h2>
 <p>I was featured in a Saleswhale article detailing the experiences of all interns in the company</p>
-<a href="https://blog.saleswhale.com/saleswhale-internships" target="_blank" class="special" aria-label="Learn more: Intern Feature" rel="noopener noreferrer">Learn More</a>
+<p><i>The blog was taken down after Saleswhale was acquired, so this links to the wayback machine</i></p>
+<a href="https://web.archive.org/web/20190824094604/https://blog.saleswhale.com/saleswhale-internships" target="_blank" class="special" aria-label="Learn more: Intern Feature" rel="noopener noreferrer">Learn More</a>
 </article>
 <article>
 

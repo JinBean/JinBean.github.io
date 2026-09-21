@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildWork, root } from './build-work.mjs';
+import { buildWork, readWork, root } from './build-work.mjs';
 
 function fixture(t){
   const directory=fs.mkdtempSync(path.join(root,'.work-test-'));
@@ -19,9 +19,10 @@ function fixture(t){
 const entry=(extra='')=>`---\ntitle: "A useful project"\ncategory: "Accessibility"\nsection: "project"\norder: 20\nexcerpt: "A concise card description."\n${extra}\n---\n\nAn introduction.\n\n## What I did\n\n- Audited the interface\n- Improved the navigation\n`;
 test('one Markdown file generates a work article and the correct listing section',t=>{
   const directory=fixture(t);
+  const startingCount=buildWork(directory).items;
   fs.writeFileSync(path.join(directory,'_work-items/useful-project.md'),entry());
   const result=buildWork(directory);
-  assert.equal(result.items,11);
+  assert.equal(result.items,startingCount+1);
   const article=fs.readFileSync(path.join(directory,'work/useful-project/index.html'),'utf8');
   assert.match(article,/<h2>What I did<\/h2>/);
   assert.match(article,/<ul>/);
@@ -29,11 +30,16 @@ test('one Markdown file generates a work article and the correct listing section
   const listing=fs.readFileSync(path.join(directory,'work.html'),'utf8');
   assert.match(listing,/A useful project/);
   assert.match(listing,/work\/useful-project\//);
+  assert.match(listing,/class="content-link work-link"[^>]*>View More <span/);
   assert.ok(listing.indexOf('A useful project')>listing.indexOf('More Projects'));
 });
 test('featured metadata renders an image and drafts stay out of the site',t=>{
   const directory=fixture(t),file=path.join(directory,'_work-items/useful-project.md');
   fs.writeFileSync(file,entry('section: featured\nimage: "/images/example.jpg"\nimage_alt: "Example project"').replace('section: "project"\n',''));
+  buildWork(directory);
+  assert.match(fs.readFileSync(path.join(directory,'work.html'),'utf8'),/work-media--placeholder/);
+  fs.mkdirSync(path.join(directory,'images'),{recursive:true});
+  fs.writeFileSync(path.join(directory,'images/example.jpg'),'image fixture');
   buildWork(directory);
   assert.match(fs.readFileSync(path.join(directory,'work.html'),'utf8'),/alt="Example project"/);
   fs.writeFileSync(file,entry('published: false'));
@@ -59,4 +65,21 @@ test('the migrated CTF walkthrough keeps progressive disclosure',t=>{
   const html=fs.readFileSync(path.join(directory,'ctf.html'),'utf8');
   assert.match(html,/class="spoilerbutton"/);
   assert.match(html,/id="ctf-solution" hidden/);
+});
+test('all trailing resource links render beside their work article',t=>{
+  const directory=fixture(t);buildWork(directory);
+  const items=readWork(directory).filter(item=>item.published&&item.hasPage&&/<section class="features">[\s\S]*<\/section>\s*$/.test(item.body));
+  assert.ok(items.length>1);
+  for(const item of items){
+    const html=fs.readFileSync(path.join(directory,item.url.slice(1)),'utf8');
+    assert.match(html,/project-layout project-layout--with-resources/,item.title);
+    assert.match(html,/<aside class="project-resources" aria-label="Related links"><section class="features">/,item.title);
+    const aside=html.match(/<aside class="project-resources"[\s\S]*?<\/aside>/)?.[0]||'';
+    const links=[...aside.matchAll(/<a\b[^>]*>/g)].map(match=>match[0]);
+    assert.ok(links.length>0,item.title);
+    for(const link of links){
+      assert.match(link,/target="_blank"/,item.title);
+      assert.match(link,/rel="noopener noreferrer"/,item.title);
+    }
+  }
 });

@@ -30,6 +30,7 @@ test('one Markdown file generates an article, overview and the correct category'
   assert.match(output,/A new &amp; useful article/);
   assert.match(output,/site-footer.js/);
   assert.match(read('blog/index.html'),/new-article.html/);
+  assert.match(read('blog/index.html'),/class="content-link post-link"[^>]*>View More <span/);
   assert.match(read('blog/personal_developer.html'),/new-article.html/);
   assert.doesNotMatch(read('blog/personal_alumni.html'),/new-article.html/);
   for(const url of ['blog/alumni/transparency.html','blog/art/instagramPart1.html','blog/instagramPart2.html']) assert.ok(fs.existsSync(path.join(dir,url)));

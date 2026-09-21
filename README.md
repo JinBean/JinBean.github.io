@@ -98,7 +98,7 @@ A Professional article supports these settings:
 | `page_title` | No | Different title used on the detail page. |
 | `subtitle` | No | Introductory line beneath the detail-page title. |
 | `secondary_excerpt` | No | Optional second paragraph on the card. |
-| `image` | Featured only | Root-relative path such as `/images/my-project.jpg`. |
+| `image` | Featured only | Root-relative path such as `/images/my-project.jpg`. A blank square appears on the highlighted card when the path is empty, missing or cannot be loaded. |
 | `image_alt` | With an image | Brief description of the image. |
 | `page` | No | Set to `false` for a listing-only card with no detail page. |
 | `permalink` | No | Custom output path. Existing articles use this to preserve their original URLs. |

@@ -33,6 +33,6 @@ We also had the opportunity to visit different company headquarters and tour the
 <article>
 <h2 class="major">Group Journey</h2>
 <p>My ASEAN Leadership Programme group took turns to detail our journey as a group every week. Read that here!</p>
-<a href="https://wearesutd.sutd.edu.sg/author/alp2018_group3/" class="special" aria-label="Learn more: Group Journey"></a>
+<a href="https://wearesutd.sutd.edu.sg/author/alp2018_group3/" class="special" aria-label="Learn more: Group Journey">Learn more</a>
 </article>
 </section>

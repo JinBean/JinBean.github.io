@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import matter from 'gray-matter';
+import { renderCardLink } from './card-link.mjs';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sections = ['featured','experience','project'];
@@ -13,6 +14,25 @@ const renderTemplate = (name,values,directory) => fs.readFileSync(path.join(dire
   return values[key];
 });
 const cleanHref = url => url.endsWith('/index.html') ? url.slice(1,-10) : url.endsWith('.html') ? url.slice(1,-5) : url.slice(1);
+const renderMedia = (item,directory,rootPrefix='') => {
+  const imageFile=item.image?path.join(directory,String(item.image).slice(1)):'';
+  const hasImage=Boolean(imageFile&&fs.existsSync(imageFile)&&fs.statSync(imageFile).isFile());
+  const image=hasImage?`<img src="${escape(rootPrefix+String(item.image).slice(1))}" alt="${escape(item.image_alt||'')}" loading="lazy" onerror="this.remove()" />`:'';
+  return `<div class="work-media${hasImage?'':' work-media--placeholder'}"${hasImage?'':' aria-hidden="true"'}>${image}</div>`;
+};
+const splitArticleResources = html => {
+  const match=html.match(/\s*(<section class="features">[\s\S]*<\/section>)\s*$/);
+  if(!match)return {article:html,resources:'',layoutClass:''};
+  const linksInNewTabs=match[1].replace(/<a\b([^>]*)>/gi,(_tag,attributes)=>{
+    const cleaned=attributes.replace(/\s+target=(?:"[^"]*"|'[^']*')/gi,'').replace(/\s+rel=(?:"[^"]*"|'[^']*')/gi,'');
+    return `<a${cleaned} target="_blank" rel="noopener noreferrer">`;
+  });
+  return {
+    article:html.slice(0,match.index).trimEnd()+'\n',
+    resources:`<aside class="project-resources" aria-label="Related links">${linksInNewTabs}</aside>`,
+    layoutClass:' project-layout--with-resources'
+  };
+};
 
 export function readWork(directory=root) {
   const seen=new Set();
@@ -40,19 +60,21 @@ export function buildWork(directory=root) {
   for(const item of items.filter(item=>item.hasPage)) {
     const segments=item.url.slice(1).split('/');
     const rootPrefix='../'.repeat(segments.length-1);
+    const content=splitArticleResources(item.body);
     outputs.set(item.url.slice(1),renderTemplate('article',{
       root:rootPrefix,title:escape(item.page_title||item.title),
-      subtitle:item.subtitle?`<p>${escape(item.subtitle)}</p>`:'',body:item.body
+      subtitle:item.subtitle?`<p>${escape(item.subtitle)}</p>`:'',body:content.article,
+      resources:content.resources,layoutClass:content.layoutClass
     },directory));
   }
   const cardLink=item=>item.hasPage?cleanHref(item.url):'';
   const featured=`<div class="work-grid">${items.filter(item=>item.section==='featured').map((item,index)=>{
     const href=cardLink(item),title=escape(item.title);
-    return `<article class="work-card" id="featured-${index+1}">${item.image?`<img class="image" src="${escape(item.image.slice(1))}" alt="${escape(item.image_alt||'')}" loading="lazy" />`:''}<div class="featured-copy"><span class="post-category">${escape(item.category)}</span><h2 class="major">${href?`<a href="${escape(href)}">${title}</a>`:title}</h2><p>${escape(item.excerpt||'')}</p>${href?`<a href="${escape(href)}" class="work-link" aria-label="View project: ${title}">View project <span aria-hidden="true">→</span></a>`:''}</div></article>`;
+    return `<article class="work-card" id="featured-${index+1}">${renderMedia(item,directory)}<div class="featured-copy"><span class="post-category">${escape(item.category)}</span><h2 class="major">${href?`<a href="${escape(href)}">${title}</a>`:title}</h2><p>${escape(item.excerpt||'')}</p>${renderCardLink({href,title:item.title,className:'work-link'})}</div></article>`;
   }).join('\n')}</div>`;
   const cards=section=>`<section class="features">${items.filter(item=>item.section===section).map(item=>{
-    const href=cardLink(item),title=escape(item.title),label=section==='experience'?'View experience':'View project';
-    return `<article class="work-card"><span class="post-category">${escape(item.category)}</span><h3 class="major">${href?`<a href="${escape(href)}">${title}</a>`:title}</h3><p>${escape(item.excerpt||'')}</p>${item.secondary_excerpt?`<p>${escape(item.secondary_excerpt)}</p>`:''}${href?`<a href="${escape(href)}" class="work-link" aria-label="${label}: ${title}">${label} <span aria-hidden="true">→</span></a>`:''}</article>`;
+    const href=cardLink(item),title=escape(item.title);
+    return `<article class="work-card"><span class="post-category">${escape(item.category)}</span><h3 class="major">${href?`<a href="${escape(href)}">${title}</a>`:title}</h3><p>${escape(item.excerpt||'')}</p>${item.secondary_excerpt?`<p>${escape(item.secondary_excerpt)}</p>`:''}${renderCardLink({href,title:item.title,className:'work-link'})}</article>`;
   }).join('\n')}</section>`;
   outputs.set('work.html',renderTemplate('index',{featured,experiences:cards('experience'),projects:cards('project')},directory));
 
